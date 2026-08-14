@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MicroLoan Foundation
+
+**GMCC Global Microfinance Case Competition**
+
+A modern, research-driven recreation of the **MicroLoan Foundation (MLF)** digital experience, developed for the GMCC Global Microfinance Case Competition. The platform presents MLF's 2023 financial, operational, social-impact, risk, and country-level insights through an interactive and responsive interface.
+
+## Features
+
+- MLF-inspired responsive website and information architecture
+- 2023 financial and operational dashboards
+- Country-level analysis for Malawi, Zambia, Zimbabwe, and South Africa
+- Interactive financial and operational data visualisations
+- Microfinance client journey and operating model
+- Social impact and poverty-related insights
+- Credit, climate, currency, liquidity, and operational risk analysis
+- Digital finance and mobile-money analysis
+- Source-backed statistics with centralised data management
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js | Application framework and routing |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Styling and responsive design |
+| Framer Motion | Animations and transitions |
+| Recharts | Data visualisation |
+| Lucide React | Interface icons |
+
+## Project Structure
+```
+MLF-GMCC/
+├── .gitignore
+├── README.md
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tsconfig.json
+├── docs/
+└── src/
+    ├── app/
+    │   ├── about/
+    │   ├── how-we-work/
+    │   ├── where-we-work/
+    │   │   ├── malawi/
+    │   │   ├── zambia/
+    │   │   ├── zimbabwe/
+    │   │   └── south-africa/
+    │   ├── our-impact/
+    │   ├── financials/
+    │   ├── risk-management/
+    │   ├── digital-finance/
+    │   ├── agriculture-climate/
+    │   ├── partners/
+    │   ├── insights/
+    │   └── contact/
+    ├── components/
+    │   ├── ui/
+    │   ├── site/
+    │   └── charts/
+    └── lib/
+```
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+```
+- Node.js
+- npm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
+```
+git clone https://www.github.com/samoff04/MLF-GMCC.git
+cd MLF-GMCC
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Development
+```
+npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open **http://localhost:3000** in your browser.
+```
 
-## Learn More
+### Production
+```
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Disclaimer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is an independent academic recreation created for the **GMCC Global Microfinance Case Competition**. It is not affiliated with, endorsed by, or sponsored by MicroLoan Foundation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All organisational, financial, and operational information is presented for academic analysis and is based on publicly available reporting referenced within the project.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**GMCC Global Microfinance Case Competition**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*MicroLoan Foundation — Digital Platform Recreation*
+
+## Author
+
+Samarth Varshney
