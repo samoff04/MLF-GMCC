@@ -4,6 +4,14 @@
 
 A modern, research-driven recreation of the **MicroLoan Foundation (MLF)** digital experience, developed for the GMCC Global Microfinance Case Competition. The platform presents MLF's 2023 financial, operational, social-impact, risk, and country-level insights through an interactive and responsive interface.
 
+## Overview
+
+![alt text](docs/image.png)
+![alt text](docs/image-1.png)
+![alt text](docs/image-2.png)
+![alt text](docs/image-3.png)
+![alt text](docs/image-4.png)
+
 ## Features
 
 - MLF-inspired responsive website and information architecture
