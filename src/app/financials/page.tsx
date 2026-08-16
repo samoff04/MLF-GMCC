@@ -2,8 +2,9 @@ import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
 import { StatCard, SourceNote, Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/site/Reveal";
 import { ChartCard } from "@/components/charts/ChartShell";
+import { DataTable } from "@/components/charts/DataTable";
 import { GroupedBarChart, SimplePieChart, SimpleBarChart } from "@/components/charts/Charts";
-import { orgWide, countryList } from "@/lib/data";
+import { orgWide, countryList, financialsDetail } from "@/lib/data";
 
 export default function FinancialsPage() {
   const incomeExpenditure = [
@@ -35,9 +36,9 @@ export default function FinancialsPage() {
             The 2023 financial dashboard
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-sand/80">
-            MLF's 2023 story is not simply growth versus decline. Operational sustainability
-            improved while FX depreciation, inflation, portfolio deterioration and higher funding
-            costs created significant financial pressure.
+            The GMCC insight: MLF's 2023 story is not simply growth versus decline. Operational
+            sustainability improved while FX depreciation, inflation, portfolio deterioration and
+            higher funding costs created significant financial pressure.
           </p>
         </Reveal>
       </Section>
@@ -51,7 +52,11 @@ export default function FinancialsPage() {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ChartCard title="Income vs expenditure, 2023" note="£M, group total">
+          <ChartCard
+            title="Income vs expenditure, 2023"
+            note="£M, group total"
+            table={<DataTable columns={financialsDetail.incomeExpenditure.columns} rows={financialsDetail.incomeExpenditure.rows} />}
+          >
             <GroupedBarChart
               data={incomeExpenditure}
               xKey="year"
@@ -79,7 +84,8 @@ export default function FinancialsPage() {
             <p className="text-sm leading-relaxed text-ink/75">
               Rising interest paid on borrowings, a £532K provision for loan write-offs, and a
               £247K operating exchange loss together illustrate the financial pressure behind an
-              improving operating self-sufficiency position.
+              improving operating self-sufficiency position — the trade-off at the centre of MLF's
+              2023 results.
             </p>
           </Card>
         </Reveal>
@@ -88,16 +94,40 @@ export default function FinancialsPage() {
       <Section tone="white">
         <SectionHeading eyebrow="Country portfolio" title="Loan book, average loan, PAR30 and OSS by country" />
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ChartCard title="Loan book by country" note="£M">
+          <ChartCard
+            title="Loan book by country"
+            note="£M"
+            table={<DataTable columns={financialsDetail.loanBookByCountry.columns} rows={financialsDetail.loanBookByCountry.rows} />}
+          >
             <SimpleBarChart data={countryLoanBook} dataKey="loanBook" xKey="country" color="#1f4b3f" />
           </ChartCard>
           <ChartCard title="Average loan by country" note="£">
             <SimpleBarChart data={countryAvgLoan} dataKey="avgLoan" xKey="country" color="#c1622d" />
           </ChartCard>
-          <ChartCard title="PAR30 by country" note="%">
+          <ChartCard
+            title="PAR30 by country"
+            note="%"
+            table={
+              <DataTable
+                columns={financialsDetail.par30ByCountry.columns}
+                rows={financialsDetail.par30ByCountry.rows}
+                footnote={financialsDetail.par30ByCountry.footnote}
+              />
+            }
+          >
             <SimpleBarChart data={par30ByCountry} dataKey="par30" xKey="country" unit="%" color="#e2a13c" />
           </ChartCard>
-          <ChartCard title="Operating self-sufficiency by country" note="%">
+          <ChartCard
+            title="Operating self-sufficiency by country"
+            note="%"
+            table={
+              <DataTable
+                columns={financialsDetail.ossByCountry.columns}
+                rows={financialsDetail.ossByCountry.rows}
+                footnote={financialsDetail.ossByCountry.footnote}
+              />
+            }
+          >
             <SimpleBarChart data={ossByCountry} dataKey="oss" xKey="country" unit="%" color="#1f4b3f" />
           </ChartCard>
         </div>

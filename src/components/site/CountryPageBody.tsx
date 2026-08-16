@@ -41,6 +41,51 @@ export function CountryPageBody({ c }: { c: CountryStats }) {
                 <SimpleBarChart data={metricData} dataKey="value" xKey="metric" unit="%" />
               </ChartCard>
             </div>
+
+            {c.followUp && (
+              <Reveal>
+                <Card className="mt-8">
+                  <Badge tone="clay">{c.followUp.year} comparison</Badge>
+                  <h3 className="mt-3 font-display text-xl font-medium">
+                    How the {c.followUp.year} book season changed the picture
+                  </h3>
+                  <div className="mt-4 overflow-x-auto">
+                    <table className="w-full min-w-[420px] border-collapse text-sm">
+                      <thead>
+                        <tr className="border-b border-line text-left text-ink/60">
+                          <th className="py-2 pr-4 font-data text-xs uppercase tracking-wider">Metric</th>
+                          <th className="py-2 pr-4 font-data text-xs uppercase tracking-wider">2023</th>
+                          <th className="py-2 pr-4 font-data text-xs uppercase tracking-wider">{c.followUp.year}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-line/60">
+                          <td className="py-2 pr-4 font-medium">Active clients</td>
+                          <td className="py-2 pr-4">{formatNumber(c.activeClients)}</td>
+                          <td className="py-2 pr-4">{formatNumber(c.followUp.activeClients)}</td>
+                        </tr>
+                        <tr className="border-b border-line/60">
+                          <td className="py-2 pr-4 font-medium">Loan book</td>
+                          <td className="py-2 pr-4">{c.loanBookLabel}</td>
+                          <td className="py-2 pr-4">{c.followUp.loanBookLabel}</td>
+                        </tr>
+                        <tr className="border-b border-line/60">
+                          <td className="py-2 pr-4 font-medium">PAR30</td>
+                          <td className="py-2 pr-4">{c.par30}%</td>
+                          <td className="py-2 pr-4 font-semibold text-clay">{c.followUp.par30}%</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2 pr-4 font-medium">OSS</td>
+                          <td className="py-2 pr-4">{c.oss}%</td>
+                          <td className="py-2 pr-4 font-semibold text-clay">{c.followUp.oss}%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="mt-4 text-xs leading-relaxed text-ink/60">{c.followUp.note}</p>
+                </Card>
+              </Reveal>
+            )}
           </Section>
 
           <Section tone="sandDeep">

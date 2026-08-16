@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { dataCurrencyNote } from "@/lib/data";
 
 const columns = [
   {
@@ -59,7 +60,7 @@ export function Footer() {
         <div className="ledger-lines mt-12 h-6" />
         <div className="flex flex-col gap-2 pt-6 text-xs text-sand/60 md:flex-row md:items-center md:justify-between">
           <p>Educational project for a GMCC case competition. Not affiliated with or endorsed by MicroLoan Foundation.</p>
-          <p>All 2023 figures — Source: MicroLoan Foundation Annual Report & Financial Statements 2023.</p>
+          <p className="max-w-md">{dataCurrencyNote}</p>
         </div>
       </div>
     </footer>

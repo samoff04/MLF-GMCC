@@ -14,15 +14,15 @@ export default function Home() {
         <div className="ledger-lines pointer-events-none absolute inset-0 opacity-10" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:items-center md:py-32 md:px-10">
           <Reveal>
-            <Eyebrow light>Social microfinance in sub-Saharan Africa</Eyebrow>
+            <Eyebrow light>GMCC global microfinance case competition build</Eyebrow>
             <h1 className="mt-4 text-balance font-display text-4xl font-medium leading-[1.05] md:text-6xl">
-              Giving hope, not handouts — to women in Africa
+              Giving hope, not handouts to women in Africa
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-sand/80">
               MicroLoan Foundation is a social microfinance institution providing business loans and
               training to women facing poverty across Malawi, Zambia, Zimbabwe and South Africa. This
-              site is an educational recreation of MLF's digital platform built for a GMCC case
-              competition project.
+              site reproduces MLF's digital platform for a case-competition project, layered with a
+              2023 financial, risk and impact intelligence system built for GMCC.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <ButtonLink href="/how-we-work">
@@ -65,14 +65,14 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our mission"
             title="A loan is only the beginning"
-            lede="MLF pairs small business loans with structured training and ongoing field support, so capital lands inside a support system rather than a transaction."
+            lede="MLF pairs small business loans with structured training and ongoing field support, so capital lands inside a support system rather than a transaction — the model this site's How We Work page walks through step by step."
           />
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-4">
           <StatCard value={`£${orgWide.totalIncomeGBP}M`} label="Total income, 2023" tone="baobab" />
           <StatCard value={`£${orgWide.loanBookGBP}M`} label="Loan book, 2023" tone="clay" />
           <StatCard value="103%" label="OSS — Malawi & Zambia" tone="gold" />
-          <StatCard value="133%" label="OSS — Zimbabwe" tone="baobab" />
+          <StatCard value="133%" label="OSS — Zimbabwe (2023; fell to 79% in 2024 as the loan book matured — see Zimbabwe page)" tone="baobab" />
         </div>
       </Section>
 
@@ -94,9 +94,12 @@ export default function Home() {
                     <>
                       <p className="mt-2 text-sm text-ink/70">{formatNumber(c.activeClients)} active clients</p>
                       <div className="mt-4 flex gap-2">
-                        <Badge tone="baobab">OSS {c.oss}%</Badge>
-                        <Badge tone="clay">PAR30 {c.par30}%</Badge>
+                        <Badge tone="baobab">OSS {c.oss}%{c.followUp ? "*" : ""}</Badge>
+                        <Badge tone="clay">PAR30 {c.par30}%{c.followUp ? "*" : ""}</Badge>
                       </div>
+                      {c.followUp && (
+                        <p className="mt-2 text-xs text-ink/50">*2023 figure — see page for {c.followUp.year} comparison</p>
+                      )}
                     </>
                   ) : (
                     <p className="mt-2 text-sm text-ink/60">Regional footprint — see page for detail</p>

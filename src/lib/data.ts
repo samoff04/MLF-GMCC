@@ -1,34 +1,46 @@
 export const SOURCE = "Source: MicroLoan Foundation Annual Report & Financial Statements 2023.";
 
+export const dataCurrencyNote =
+  "All figures on this site are from MicroLoan Foundation's 2023 Annual Report unless explicitly marked 2024. More recent 2024 results are available in MLF's 2024 Annual Report and are only reflected here on the pages where the year-on-year change is most material (Zimbabwe, Financials).";
+
 export const orgWide = {
   womenSupported: 144943,
   activeFemaleEntrepreneurs: 93908,
-  loansDisbursedGBP: 17.329, // £M
-  loanBookGBP: 5.267, // £M
+  loansDisbursedGBP: 17.329,
+  loanBookGBP: 5.267,
   averageLoanGBP: 89,
-  totalIncomeGBP: 6.141, // £M
-  totalExpenditureGBP: 5.622, // £M
-  interestIncomeGBP: 4.896, // £M
-  voluntaryIncomeGBP: 1.178, // £M
-  interestPaidGBP: 1.051, // £M
-  loanProvisionsGBP: 0.532, // £M (write-offs / provisions)
-  operatingFxLossGBP: 0.247, // £M
+  totalIncomeGBP: 6.141,
+  totalExpenditureGBP: 5.622,
+  interestIncomeGBP: 4.896,
+  voluntaryIncomeGBP: 1.178,
+  interestPaidGBP: 1.051,
+  loanProvisionsGBP: 0.532,
+  operatingFxLossGBP: 0.247,
 };
 
 export type CountryKey = "malawi" | "zambia" | "zimbabwe" | "southAfrica";
+
+export interface FollowUpYear {
+  year: string;
+  activeClients: number;
+  loanBookLabel: string;
+  par30: number;
+  oss: number;
+  note: string;
+}
 
 export interface CountryStats {
   key: CountryKey;
   name: string;
   slug: string;
   activeClients: number;
-  loanBookGBP: number; // £M
+  loanBookGBP: number;
   loanBookLabel: string;
   averageLoanGBP: number;
-  par30: number; // %
-  repaymentRate: number; // %
-  oss: number; // %
-  portfolioYield: number; // %
+  par30: number;
+  repaymentRate: number;
+  oss: number;
+  portfolioYield: number;
   macro: string[];
   currencyRisk: string;
   climateExposure: string;
@@ -36,6 +48,7 @@ export interface CountryStats {
   keyProblems: string[];
   opportunities: string[];
   narrative: string;
+  followUp?: FollowUpYear;
 }
 
 export const countries: Record<CountryKey, CountryStats> = {
@@ -109,22 +122,34 @@ export const countries: Record<CountryKey, CountryStats> = {
     repaymentRate: 100,
     oss: 133,
     portfolioYield: 236,
-    macro: ["10x active-client growth (234 → 2,205)", "172% inflation", "USD-denominated lending strategy"],
-    currencyRisk: "Extreme macro backdrop (172% inflation) managed by lending predominantly in USD rather than local currency.",
-    climateExposure: "Present but secondary to hyperinflation as the dominant operating risk in 2023.",
+    macro: [
+      "10x active-client growth in 2023 (234 → 2,205) — a rate of growth that outpaced the institution's ability to season and monitor the resulting book",
+      "172% inflation",
+      "USD-denominated lending strategy",
+    ],
+    currencyRisk: "Extreme macro backdrop (172% inflation) managed by lending predominantly in USD rather than local currency. USD lending solved the currency problem; it did not, on its own, solve credit risk — see the 2024 follow-up below.",
+    climateExposure: "Present but secondary to hyperinflation and book-seasoning risk as the dominant operating factors in 2023.",
     digitalAdoption: "Constrained by limited cash and banking infrastructure for repayment collection.",
     keyProblems: [
+      "PAR30 is highly sensitive to loan-book age; rapid growth in 2022–23 masked underwriting risk that surfaced once the book matured in 2024",
       "172% inflation makes local-currency lending largely unviable",
       "Cash and banking infrastructure limits repayment-collection options",
-      "Extreme currency risk requires continuous operational adaptation",
     ],
     opportunities: [
-      "USD lending strategy has produced 0% PAR30 and 133% OSS — a template worth studying",
-      "Client base grew tenfold, suggesting substantial unmet demand once currency risk is managed",
-      "Small base means marginal investment could scale a proven model quickly",
+      "USD lending durably solved Zimbabwe's currency problem; credit risk management has not yet been proven at scale — 2023's 0% PAR30 was a function of book age, not underwriting quality",
+      "Any further growth should be gated to portfolio performance (for example, PAR30 held under a defined threshold across two consecutive periods) rather than scaled on the strength of a single low-delinquency year",
+      "The 2023→2024 reversal is itself a useful precedent for how fast an unseasoned, fast-growing book can deteriorate — directly relevant to sequencing any new market",
     ],
     narrative:
-      "Zimbabwe is the smallest market but the standout performer on every quality metric: 0% PAR30, 100% repayment, 133% OSS. The USD lending strategy insulated the portfolio from hyperinflation.",
+      "Zimbabwe is the smallest and most volatile market. In 2023 it posted 0% PAR30 and 133% OSS on a loan book that had just grown roughly tenfold in a single year — but this reflects an unseasoned portfolio, not proven quality. In 2024, once the book went through its first full repayment cycle, PAR30 rose to 27.7% and OSS fell to 79%. USD lending solved the currency problem; it did not solve credit risk.",
+    followUp: {
+      year: "2024",
+      activeClients: 2350,
+      loanBookLabel: "£151,733 (converted)",
+      par30: 27.7,
+      oss: 79,
+      note: "2024 figures are from MLF's 2024 Annual Report, shown here because the reversal from 2023 is directly material to how Zimbabwe's 2023 metrics should be read.",
+    },
   },
   southAfrica: {
     key: "southAfrica",
@@ -143,7 +168,9 @@ export const countries: Record<CountryKey, CountryStats> = {
     climateExposure: "Not separately disclosed in the 2023 statistics provided for this project.",
     digitalAdoption: "Not separately disclosed in the 2023 statistics provided for this project.",
     keyProblems: ["Detailed 2023 portfolio metrics for South Africa were not included in the figures supplied for this project."],
-    opportunities: ["A natural next step is to source or estimate South Africa-specific metrics separately from the disclosed Malawi/Zambia/Zimbabwe data."],
+    opportunities: [
+      "Zimbabwe's 2023→2024 reversal is a useful sequencing precedent: any new-market launch, including South Africa, should build in a seasoning period before headline metrics are treated as proof of model quality.",
+    ],
     narrative:
       "MLF operates a South Africa entity as part of its regional footprint, but the country-level 2023 operating metrics supplied for this project cover Malawi, Zambia and Zimbabwe only.",
   },
@@ -176,22 +203,54 @@ export const howWeWorkSteps = [
 
 export const modelEconomics = {
   summary:
-    "MLF's average loan size (£89 in 2023) is small relative to typical microfinance benchmarks, and its delivery model is rural and high-touch. That combination produces a high cost-to-serve per pound lent. Operating self-sufficiency (OSS) above 100% in Malawi (103%) and Zambia (103%), and well above it in Zimbabwe (133%), was achieved through scale, portfolio yield and early-stage digitisation rather than by abandoning small, high-impact loans.",
+    "MLF's average loan size (£89 in 2023) is small relative to typical microfinance benchmarks, and its delivery model is rural and high-touch. That combination produces a high cost-to-serve per pound lent. Operating self-sufficiency (OSS) above 100% in Malawi (103%) and Zambia (103%) was achieved through scale, portfolio yield and early-stage digitisation. Zimbabwe's 2023 OSS of 133% looked stronger still, but fell to 79% in 2024 as its loan book matured — a reminder that OSS read from a single, unseasoned year can overstate durable sustainability.",
   levers: [
     "Scale — more clients per branch spreads fixed field costs across a larger portfolio",
     "Staff productivity — clients per field officer is the single biggest driver of cost-to-serve",
     "Digitalisation — mobile-money disbursement (100% in Zambia) cuts cash-handling cost and time",
-    "Operating self-sufficiency (OSS) — the ratio of operating income to operating cost",
+    "Operating self-sufficiency (OSS) — the ratio of operating income to operating cost, best read across multiple years rather than a single snapshot",
   ],
 };
 
 export const riskCategories = [
-  { id: "credit", name: "Credit risk", level: "Elevated", detail: "PAR30 ranged from 0% (Zimbabwe) to 8.8% (Malawi) in 2023. Malawi's deterioration reflects currency, inflation and climate shocks flowing through to household repayment capacity." },
-  { id: "climate", name: "Climate risk", level: "High", detail: "With roughly 90% of clients engaged in smallholder farming, weather shocks (notably Cyclone Freddy in Malawi) translate directly into lower harvest and business income." },
-  { id: "fx", name: "FX risk", level: "Severe", detail: "Malawi (-44% Kwacha), Zambia (-41.8% Kwacha) and Zimbabwe (172% inflation) each faced significant currency pressure in 2023, contributing to a £247K operating exchange loss group-wide." },
-  { id: "liquidity", name: "Liquidity & funding risk", level: "Moderate", detail: "Interest paid on borrowings reached £1.051M in 2023, squeezing the margin between portfolio yield and cost of capital." },
-  { id: "operational", name: "Operational risk", level: "Moderate", detail: "High staff turnover in Zambia is the clearest disclosed operational risk." },
-  { id: "regulatory", name: "Regulatory risk", level: "Watch", detail: "Operating across four jurisdictions with different microfinance, banking and mobile-money regulatory regimes adds compliance complexity." },
+  {
+    id: "credit",
+    name: "Credit risk",
+    level: "Elevated",
+    detail:
+      "PAR30 ranged from 0% (Zimbabwe) to 8.8% (Malawi) in 2023. Zimbabwe's 0% reflects a loan book too young to have a meaningful arrears history, not superior credit quality — its PAR30 rose to 27.7% in 2024 once the book seasoned. Excluding Zimbabwe, 2023 PAR30 ranged from 7.1% (Zambia) to 8.8% (Malawi).",
+  },
+  {
+    id: "climate",
+    name: "Climate risk",
+    level: "High",
+    detail: "With roughly 90% of clients engaged in smallholder farming, weather shocks (notably Cyclone Freddy in Malawi) translate directly into lower harvest and business income.",
+  },
+  {
+    id: "fx",
+    name: "FX risk",
+    level: "Severe",
+    detail: "Malawi (-44% Kwacha), Zambia (-41.8% Kwacha) and Zimbabwe (172% inflation) each faced significant currency pressure in 2023, contributing to a £247K operating exchange loss group-wide.",
+  },
+  {
+    id: "liquidity",
+    name: "Liquidity & funding risk",
+    level: "Elevated",
+    detail:
+      "Interest paid on borrowings reached £1.051M in 2023 — 61% higher than 2022 — and equalled 89% of voluntary income raised that year. This is a structural, growing cost rather than a one-off, driven by debt-funded loan book expansion. Rated Elevated to align with its trajectory relative to Credit and FX risk.",
+  },
+  {
+    id: "operational",
+    name: "Operational risk",
+    level: "Moderate",
+    detail: "High staff turnover in Zambia is the clearest disclosed operational risk — field officer continuity is closely tied to group cohesion and repayment discipline.",
+  },
+  {
+    id: "regulatory",
+    name: "Regulatory risk",
+    level: "Watch",
+    detail: "Operating across four jurisdictions with different microfinance, banking and mobile-money regulatory regimes adds compliance complexity.",
+  },
 ];
 
 export const digitalFinance = {
@@ -202,7 +261,7 @@ export const digitalFinance = {
     { title: "Digital savings", detail: "A digital savings initiative launched in Zambia in 2023, building on the mobile-money rail already used for disbursement." },
     { title: "Repayment tracking", detail: "Digital rails create a repayment history per client that field officers can monitor between group meetings." },
     { title: "Customer financial history", detail: "Digitised transaction history is the foundation for any future credit-scoring model." },
-    { title: "Future credit scoring", detail: "Malawi's planned agricultural credit-scoring product depends on this kind of digitised repayment and transaction history." },
+    { title: "Future credit scoring", detail: "Malawi's planned agricultural credit-scoring product depends on this kind of digitised repayment and transaction history — and, per Zimbabwe's 2024 results, on data that spans more than one book cycle." },
   ],
 };
 
@@ -222,5 +281,70 @@ export const agricultureClimate = {
     "Savings buffers — build a cushion clients can draw on after a shock",
     "Diversification — encourage non-farm income streams alongside farming",
     "Digital monitoring — early warning of stress via mobile-money transaction patterns",
+  ],
+};
+
+export const financialsDetail = {
+  incomeExpenditure: {
+    columns: ["", "2023", "2022"],
+    rows: [
+      ["Total income", "£6,140,987", "£5,327,658"],
+      ["Total expenditure", "£5,621,792", "£4,763,323"],
+      ["Net income (pre exchange/revaluation)", "£519,195", "£564,335"],
+    ],
+  },
+  loanBookByCountry: {
+    columns: ["Malawi", "Zambia", "Zimbabwe"],
+    rows: [["£2,051,243", "£2,956,743", "£233,891"]],
+  },
+  par30ByCountry: {
+    columns: ["Malawi", "Zambia", "Zimbabwe*"],
+    rows: [["8.8%", "7.1%", "0%"]],
+    footnote: "*Zimbabwe's 0% reflects an unseasoned 2023 loan book, not superior credit quality — see Zimbabwe country page and Risk Management.",
+  },
+  ossByCountry: {
+    columns: ["Malawi", "Zambia", "Zimbabwe*"],
+    rows: [["103%", "103%", "133%"]],
+    footnote: "*Zimbabwe's OSS fell to 79% in 2024 once its loan book matured — see Zimbabwe country page.",
+  },
+};
+
+export const partnersDetail = {
+  efficiencyRatio: [
+    { year: "2020", ratio: 3.3 },
+    { year: "2021", ratio: 4.0 },
+    { year: "2022", ratio: 2.9 },
+    { year: "2023", ratio: 3.4 },
+  ],
+  efficiencyNote:
+    "Fundraising efficiency ratio: income raised divided by the cost of raising it. As a share of voluntary income (cost ÷ income), the ratio has held in a 25–34% band for four consecutive years, above typical sector best-practice targets of 10–15%.",
+  channelMix: [
+    { channel: "Trusts and institutions", amount: 623645, share: 53 },
+    { channel: "Individuals and events", amount: 490155, share: 42 },
+    { channel: "Donated services and facilities", amount: 55643, share: 5 },
+    { channel: "Corporates", amount: 9011, share: 1 },
+  ],
+  channelMixTotal: 1178454,
+  volatility: [
+    { year: "2020", income: 963432, change: null },
+    { year: "2021", income: 1100124, change: 14 },
+    { year: "2022", income: 946085, change: -14 },
+    { year: "2023", income: 1178454, change: 25 },
+  ],
+  volatilityNote:
+    "Voluntary income has swung in both directions in nearly every year shown — this channel has not shown a stable growth trend over the period reported.",
+  topDonors2023: [
+    "WildHearts Group and Foundation",
+    "Whole Planet Foundation",
+    "The Paul Foundation",
+    "The Allan & Nesta Ferguson Charitable Settlement",
+    "Rita and David Slowe Charitable Trust",
+    "The MacDaibhidh Charitable Trust",
+  ],
+  technicalAssistancePartners: [
+    "Swiss Capacity Building Fund",
+    "GIZ",
+    "Grameen Crédit Agricole",
+    "Social Performance Task Force",
   ],
 };
