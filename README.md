@@ -7,10 +7,15 @@ A modern, research-driven recreation of the **MicroLoan Foundation (MLF)** digit
 ## Overview
 
 ![alt text](docs/image.png)
+---
 ![alt text](docs/image-1.png)
+---
 ![alt text](docs/image-2.png)
+---
 ![alt text](docs/image-3.png)
+---
 ![alt text](docs/image-4.png)
+---
 
 ## Features
 
