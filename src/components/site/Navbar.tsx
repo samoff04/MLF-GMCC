@@ -62,14 +62,17 @@ export function Navbar() {
         <nav className="hidden items-center gap-7 lg:flex">
           <Dropdown label="Our work" items={ourWork} />
           <Dropdown label="More" items={more} />
+          <Link href="/solution" className="text-sm font-semibold text-gold hover:text-sand">
+            Solution
+          </Link>
           <Link href="/contact" className="text-sm font-semibold text-sand/90 hover:text-sand">
             Contact
           </Link>
         </nav>
 
         <div className="hidden lg:block">
-          <ButtonLink href="/our-impact" variant="primary">
-            See our impact
+          <ButtonLink href="/solution" variant="primary">
+            Anchor & Amplify
           </ButtonLink>
         </div>
 
@@ -86,6 +89,7 @@ export function Navbar() {
         <div className="border-t border-baobab-dark/40 bg-baobab px-6 py-4 lg:hidden">
           <MobileGroup title="Our work" items={ourWork} onNavigate={() => setOpen(false)} />
           <MobileGroup title="More" items={more} onNavigate={() => setOpen(false)} />
+          <MobileGroup title="GMCC solution" items={[{ href: "/solution", label: "Anchor & Amplify" }]} onNavigate={() => setOpen(false)} />
         </div>
       )}
     </header>
