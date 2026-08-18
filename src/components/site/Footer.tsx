@@ -28,13 +28,17 @@ const columns = [
       { href: "/contact", label: "Contact" },
     ],
   },
+  {
+    title: "GMCC solution",
+    links: [{ href: "/solution", label: "Anchor & Amplify strategy" }],
+  },
 ];
 
 export function Footer() {
   return (
     <footer className="border-t border-baobab-dark/40 bg-baobab text-sand">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
             <p className="font-display text-lg font-semibold">MicroLoan Foundation</p>
             <p className="mt-3 max-w-xs text-sm text-sand/70">
