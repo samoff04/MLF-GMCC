@@ -58,7 +58,11 @@ export default function SolutionPage() {
               <Card className="h-full">
                 <Badge
                   tone={
-                    i === 0 ? "baobab" : i === 1 ? "gold" : "clay"
+                    i === 0
+                      ? "baobab"
+                      : i === 1
+                        ? "gold"
+                        : "clay"
                   }
                 >
                   Horizon {h.number}: {h.name}
@@ -77,7 +81,10 @@ export default function SolutionPage() {
                 </p>
 
                 <div className="mt-4 rounded-lg bg-sand px-3 py-2">
-                  <p className="text-xs text-ink/60">Fundraising cost</p>
+                  <p className="text-xs text-ink/60">
+                    Fundraising cost
+                  </p>
+
                   <p className="text-sm font-medium text-ink">
                     {h.fundraisingCost}
                   </p>
@@ -92,51 +99,48 @@ export default function SolutionPage() {
         <SectionHeading
           eyebrow="10-year estimation model"
           title="Funding by channel: Foundation grant, Corporate, Digital"
-          lede="An illustrative GMCC projection built from the roadmap above and extended to Year 10. Not an MLF-published figure."
+          lede="An illustrative GMCC projection built from the roadmap above. Not an MLF-published figure."
         />
 
         <div className="mt-10 grid gap-6 md:grid-cols-4">
           <StatCard
-            value="$30.0M"
-            label="Cumulative by Year 6 (roadmap target)"
+            value="$7.0M"
+            label="Cumulative by Year 3"
             tone="baobab"
           />
 
           <StatCard
-            value="$54.5M"
-            label="Cumulative by Year 10 (extended)"
-            tone="clay"
+            value="$19.6M"
+            label="Cumulative by Year 7"
+            tone="gold"
           />
 
           <StatCard
-            value="4.6M"
-            label="Digital channel, Year 10 (largest single source)"
-            tone="gold"
+            value="$30.0M"
+            label="Cumulative by Year 10"
+            tone="clay"
           />
 
           <StatCard
             value={`${Math.round(
               fundingModelSummary.digitalShareYear10 * 100
             )}%`}
-            label="Digital share of Year 10 new income"
+            label="Digital share of Year 10"
           />
         </div>
 
         <Reveal>
           <Card className="mt-10">
             <h3 className="font-display text-xl font-medium">
-              Annual funding raised by channel, Years 1 to 10
+              10-year funding trajectory
             </h3>
 
             <p className="mt-1 text-sm text-ink/60">
-              Toggle between annual channel mix and cumulative total raised.
-              Bars are stacked: foundation grant, corporate, digital.
+              A measured path from foundation-led anchoring to
+              diversified, sustainable funding by Year 10.
             </p>
 
-            <div
-              style={{ width: "100%", height: 360 }}
-              className="mt-4"
-            >
+            <div className="mt-4 w-full min-w-0">
               <FundingModelChart data={tenYearFundingModel} />
             </div>
 
@@ -209,14 +213,16 @@ export default function SolutionPage() {
       <Section tone="sandDeep">
         <SectionHeading
           eyebrow="Evidence"
-          title="Case studies supporting Anchor and Amplify"
+          title="Case studies supporting Anchor & Amplify"
         />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {caseStudies.map((cs, i) => (
             <Reveal key={cs.id} delay={i * 0.05}>
               <Card className="h-full">
-                <Badge tone="clay">{cs.pillar}</Badge>
+                <Badge tone="clay">
+                  {cs.pillar}
+                </Badge>
 
                 <h3 className="mt-3 font-display text-lg font-medium">
                   {cs.name}

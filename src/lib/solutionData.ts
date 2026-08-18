@@ -9,9 +9,9 @@
 
 export const solutionMeta = {
   name: "Anchor & Amplify",
-  tagline: "A funding strategy for MLF's $30M, six-year growth target",
+  tagline: "A measured 10-year funding strategy to reach $30M sustainably",
   headlineThesis:
-    "Scaling MLF's existing fundraising engine, mostly UK individuals and events at 62% of the mix, to hit $30M over six years would mean scaling the organisation's highest-cost channel by roughly 6 to 8x, while the case caps fundraising cost at 30% falling to 10 to 15%. That is mathematically incompatible: individuals and events fundraising does not get cheaper at scale the way institutional grants do. The $30M has to come predominantly from a small number of large, multi-year institutional commitments, not from a bigger version of what MLF already does. Retail fundraising should be reserved for what it is actually good at: recurring, low-touch, digital-first giving layered in once the cost base has room, not the primary engine.",
+    "Rather than aggressively scaling high-cost individual fundraising, MLF should build a diversified funding base over 10 years. Institutional and foundation partnerships anchor the strategy, corporate partnerships broaden the base, and digital fundraising gradually adds recurring donors and qualified prospects. The objective is a stable $30M funding pool by Year 10, not a short-term fundraising spike.",
 };
 
 export interface Horizon {
@@ -26,31 +26,37 @@ export interface Horizon {
 
 export const horizons: Horizon[] = [
   {
-    id: "anchor",
+    id: "build-anchor",
     number: 1,
-    name: "Anchor",
-    years: "Years 1 to 2",
-    cumulativeTarget: "$3M (Yr 1) to $9 to 10M cumulative",
-    primaryEngine: "2 to 3 large institutional, DFI or philanthropic-fund commitments",
-    fundraisingCost: "~30%, but concentrated in a few relationships, efficient per dollar despite the high ratio",
+    name: "Build & Anchor",
+    years: "Years 0–3",
+    cumulativeTarget: "$7.0M cumulative",
+    primaryEngine:
+      "Build 2–3 anchor foundation and institutional relationships while strengthening the fundraising function.",
+    fundraisingCost:
+      "Initially higher, then improves as multi-year relationships reduce acquisition cost.",
   },
   {
-    id: "diversify",
+    id: "diversify-scale",
     number: 2,
-    name: "Diversify",
-    years: "Years 3 to 4",
-    cumulativeTarget: "+$12 to 13M (to roughly $22M)",
-    primaryEngine: "Mid-tier trusts, corporate CSR, US and Australia expansion, government or blended finance",
-    fundraisingCost: "Stepping down to ~15 to 20%",
+    name: "Diversify & Scale",
+    years: "Years 4–7",
+    cumulativeTarget: "$19.6M cumulative",
+    primaryEngine:
+      "Expand into aligned foundations, corporate partnerships, major philanthropy and new donor geographies.",
+    fundraisingCost:
+      "Target ~15–20% as institutional and corporate income becomes more predictable.",
   },
   {
-    id: "amplify",
+    id: "sustain-amplify",
     number: 3,
-    name: "Amplify",
-    years: "Years 5 to 6",
-    cumulativeTarget: "+$8 to 9M (to $30M)",
-    primaryEngine: "Digital recurring-giving at scale, using proven impact data as the pitch",
-    fundraisingCost: "Down to 10 to 15%",
+    name: "Sustain & Amplify",
+    years: "Years 7–10",
+    cumulativeTarget: "$30.0M cumulative",
+    primaryEngine:
+      "Renew anchor partnerships, deepen corporate relationships and scale low-cost digital recurring giving.",
+    fundraisingCost:
+      "Target ~10–15% through renewals, recurring giving and a diversified funding base.",
   },
 ];
 
@@ -82,12 +88,13 @@ export const pillars: Pillar[] = [
     id: "cost-ceiling",
     number: 2,
     title: "Hit the cost ceiling by re-sequencing, not by cutting",
-    summary: "The 30%-falling-to-10-15% constraint is a ratio, so the fix is which dollars you raise, not how little you spend.",
+    summary:
+      "The 30%-falling-to-10-15% constraint is a ratio, so the fix is which dollars you raise, not how little you spend.",
     points: [
       "Institutional grants and legacy gifts have near-zero marginal cost once the relationship exists. Retail acquisition does not.",
-      "Years 1 to 2: $500k funds a small, senior institutional-partnerships function of 2 to 3 people chasing $3 to 5M a year in anchor commitments, a roughly 15 to 17% ratio on paper even inside the 30% cap, giving headroom rather than running at the ceiling.",
-      "Years 3 to 4: as institutional income compounds, the ratio falls even if absolute cost rises modestly, for example a $700k team on $6 to 7M raised is roughly 10 to 12%.",
-      "Years 5 to 6: reinvest the ratio headroom into a lean digital recurring-giving program, low cost per dollar at scale, unlike one-off event fundraising, to add breadth without breaking the ceiling.",
+      "Years 0 to 3: build a small, senior institutional-partnerships function focused on securing anchor commitments while keeping fundraising cost within the case ceiling.",
+      "Years 4 to 7: as institutional income compounds, the fundraising ratio should fall even as absolute investment rises modestly.",
+      "Years 7 to 10: reinvest the ratio headroom into a lean digital recurring-giving program, adding donor breadth without breaking the fundraising-cost ceiling.",
     ],
     whatToStop:
       "Stop building a large events and individual-giving acquisition team early. It is the most expensive way to hit a dollar target under this cost structure, and it is the channel the underlying financials show is already underperforming its own historical efficiency.",
@@ -96,7 +103,8 @@ export const pillars: Pillar[] = [
     id: "reach",
     number: 3,
     title: "Reach: decouple funding raised from capital deployed to clients",
-    summary: "$30M in philanthropic funding is not the same pool of money as the loan capital required to serve 1 million women.",
+    summary:
+      "$30M in philanthropic funding is not the same pool of money as the loan capital required to serve 1 million women.",
     points: [
       "Scaling current reach, roughly 160,000 to 190,000 depending on which of the case's own figures you anchor to, to 1,000,000 requires an estimated $35 to 60M of loan-book capital at current capital-per-client intensity, a separate, larger number than the fundraising target.",
       "Position the $30M as catalytic or first-loss capital, not as the loan book itself. Philanthropic capital's job is to de-risk and unlock a multiple of blended or DFI debt at reasonable cost, the model MLF already partially uses with Grameen Credit Agricole and Oikocredit-type facilities.",
@@ -109,7 +117,8 @@ export const pillars: Pillar[] = [
     id: "risk-gates",
     number: 4,
     title: "Mitigate rapid-expansion risk: sequence by portfolio health, not ambition",
-    summary: "Zimbabwe's loan book grew roughly 26x in one year, had its first full repayment cycle, and PAR30 went from 0% to 27.7%.",
+    summary:
+      "Zimbabwe's loan book grew roughly 26x in one year, had its first full repayment cycle, and PAR30 went from 0% to 27.7%.",
     points: [
       "Portfolio quality gates: no country or branch receives its next capital tranche until PAR30 stays under a defined threshold, for example 5%, for two consecutive reporting periods. Capital follows proven repayment discipline, not the reverse.",
       "Correlated-risk buffer: Malawi, Zambia, Zimbabwe and now South Africa sit in the same climate and currency risk bloc. The same El Nino cycle hit all three in 2024. Ringfence roughly 5% of raised capital as a weather and macro contingency reserve rather than assuming four-country diversification provides real protection inside one climate system.",
@@ -122,10 +131,7 @@ export const pillars: Pillar[] = [
 
 // ----------------------------------------------------------------------------
 // 10-year funding estimation model
-// Illustrative GMCC projection, not an MLF-published figure. Built from the
-// three-horizon roadmap above (Years 1 to 6, cumulative to $30M) and extended
-// through Year 10 assuming digital recurring giving continues compounding,
-// corporate CSR matures, and institutional grants continue as renewals.
+// Illustrative GMCC projection, not an MLF-published figure.
 // Figures in $M, new income raised per year by channel.
 // ----------------------------------------------------------------------------
 
@@ -139,27 +145,104 @@ export interface FundingYear {
 }
 
 export const tenYearFundingModel: FundingYear[] = [
-  { year: "Yr 1", foundationGrant: 2.7, corporate: 0.1, digital: 0.2, cumulative: 3.0, horizon: "Anchor" },
-  { year: "Yr 2", foundationGrant: 5.5, corporate: 0.5, digital: 0.5, cumulative: 9.5, horizon: "Anchor" },
-  { year: "Yr 3", foundationGrant: 4.0, corporate: 1.8, digital: 0.7, cumulative: 16.0, horizon: "Diversify" },
-  { year: "Yr 4", foundationGrant: 3.0, corporate: 2.2, digital: 0.8, cumulative: 22.0, horizon: "Diversify" },
-  { year: "Yr 5", foundationGrant: 1.5, corporate: 1.3, digital: 1.7, cumulative: 26.5, horizon: "Amplify" },
-  { year: "Yr 6", foundationGrant: 0.8, corporate: 0.9, digital: 1.8, cumulative: 30.0, horizon: "Amplify" },
-  { year: "Yr 7", foundationGrant: 1.0, corporate: 1.2, digital: 2.3, cumulative: 34.5, horizon: "Sustain" },
-  { year: "Yr 8", foundationGrant: 1.2, corporate: 1.4, digital: 2.9, cumulative: 40.0, horizon: "Sustain" },
-  { year: "Yr 9", foundationGrant: 1.3, corporate: 1.6, digital: 3.6, cumulative: 46.5, horizon: "Sustain" },
-  { year: "Yr 10", foundationGrant: 1.5, corporate: 1.9, digital: 4.6, cumulative: 54.5, horizon: "Sustain" },
+  {
+    year: "Year 0",
+    foundationGrant: 0,
+    corporate: 0,
+    digital: 0,
+    cumulative: 0,
+    horizon: "Build & Anchor",
+  },
+  {
+    year: "Year 1",
+    foundationGrant: 1.3,
+    corporate: 0.5,
+    digital: 0.2,
+    cumulative: 2.0,
+    horizon: "Build & Anchor",
+  },
+  {
+    year: "Year 2",
+    foundationGrant: 1.4,
+    corporate: 0.7,
+    digital: 0.3,
+    cumulative: 4.4,
+    horizon: "Build & Anchor",
+  },
+  {
+    year: "Year 3",
+    foundationGrant: 1.4,
+    corporate: 0.9,
+    digital: 0.3,
+    cumulative: 7.0,
+    horizon: "Build & Anchor",
+  },
+  {
+    year: "Year 4",
+    foundationGrant: 1.5,
+    corporate: 1.1,
+    digital: 0.4,
+    cumulative: 10.0,
+    horizon: "Diversify & Scale",
+  },
+  {
+    year: "Year 5",
+    foundationGrant: 1.6,
+    corporate: 1.1,
+    digital: 0.4,
+    cumulative: 13.1,
+    horizon: "Diversify & Scale",
+  },
+  {
+    year: "Year 6",
+    foundationGrant: 1.7,
+    corporate: 1.1,
+    digital: 0.4,
+    cumulative: 16.3,
+    horizon: "Diversify & Scale",
+  },
+  {
+    year: "Year 7",
+    foundationGrant: 1.7,
+    corporate: 1.2,
+    digital: 0.4,
+    cumulative: 19.6,
+    horizon: "Diversify & Scale",
+  },
+  {
+    year: "Year 8",
+    foundationGrant: 1.7,
+    corporate: 1.2,
+    digital: 0.5,
+    cumulative: 23.0,
+    horizon: "Sustain & Amplify",
+  },
+  {
+    year: "Year 9",
+    foundationGrant: 1.7,
+    corporate: 1.3,
+    digital: 0.5,
+    cumulative: 26.5,
+    horizon: "Sustain & Amplify",
+  },
+  {
+    year: "Year 10",
+    foundationGrant: 1.6,
+    corporate: 1.4,
+    digital: 0.5,
+    cumulative: 30.0,
+    horizon: "Sustain & Amplify",
+  },
 ];
 
 export const fundingModelNote =
-  "Illustrative 10-year GMCC estimation model, not an MLF-published projection. Years 1 to 6 are built directly from the Anchor and Amplify roadmap's cumulative targets (3.0, 9.5, 16.0, 22.0, 26.5 and 30.0 $M). Years 7 to 10 extend the same three channels, assuming foundation grants continue as steady renewals, corporate CSR matures toward roughly 8 to 10% of the mix, and digital recurring giving compounds the way charity: water's monthly-giving program did after scaling past its acquisition phase.";
+  "Illustrative 10-year GMCC estimation model, not an MLF-published projection. The model uses a measured funding ramp rather than assuming rapid fundraising growth. Foundation and institutional funding anchor the first phase, corporate partnerships expand during the middle phase, and digital recurring giving gradually becomes a supporting channel.";
 
 export const fundingModelSummary = {
-  totalYear6: 30.0,
-  totalYear10: 54.5,
-  digitalShareYear10: 4.6 / 8.0,
-  corporateShareYear10: 1.9 / 8.0,
-  foundationShareYear10: 1.5 / 8.0,
+  totalYear10: 30.0,
+  digitalShareYear10: 0.5 / 3.5,
+  corporateShareYear10: 1.4 / 3.5,
+  foundationShareYear10: 1.6 / 3.5,
 };
 
 // ----------------------------------------------------------------------------
